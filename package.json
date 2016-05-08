@@ -1,0 +1,47 @@
+{
+  "name": "clock-in-out",
+  "version": "0.0.0",
+  "description": "Clock in and out for work. Saves my time in a document.",
+  "main": "index.js",
+  "scripts": {
+    "test": "xo && ava test/*.js --verbose"
+  },
+  "keywords": [
+    "clock",
+    "in",
+    "out",
+    "work"
+  ],
+  "author": "Emil Johansson <emiljohansson.se@gmail.com>",
+  "license": "MIT",
+  "bin": {
+    "clockr": "cli.js"
+  },
+  "xo": {
+    "esnext": true,
+    "space": 4,
+    "ignore": [
+      "cli.js"
+    ]
+  },
+  "ava": {
+    "files": [
+      "test/*.js",
+      "!node_modules"
+    ],
+    "failFast": true,
+    "serial": true,
+    "tap": true,
+    "verbose": true
+  },
+  "dependencies": {
+    "load-json-file": "^1.1.0",
+    "minimist": "^1.2.0",
+    "path-exists": "^2.1.0",
+    "pinkie-promise": "^2.0.0"
+  },
+  "devDependencies": {
+    "ava": "^0.10.0",
+    "xo": "^0.12.1"
+  }
+}
