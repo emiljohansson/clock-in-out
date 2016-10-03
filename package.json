@@ -1,6 +1,6 @@
 {
   "name": "clock-in-out",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Clock in and out for work. Saves my time in a document.",
   "main": "index.js",
   "scripts": {
