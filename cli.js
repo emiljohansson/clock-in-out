@@ -22,6 +22,23 @@ function onlyNumbers(string) {
     return /^\d+$/.test(string);
 }
 
+function runReport(options) {
+    report(options)
+        .then(presentReport)
+        .catch(e => {
+            console.log(e);
+        });
+}
+
+function presentReport(result) {
+    console.log(''
+        .concat(result.hours)
+        .concat(' hours ')
+        .concat(result.minutes)
+        .concat(' minutes')
+    );
+}
+
 if (argv['week']) {
     options.week = argv['week'];
 }
@@ -36,24 +53,14 @@ argv._.forEach(function(arg) {
 });
 
 if (argv._.indexOf('report') > -1) {
-    report(options)
-        .then(result => {
-            console.log(''
-                .concat(result.hours)
-                .concat(' hours ')
-                .concat(result.minutes)
-                .concat(' minutes')
-            );
-        })
-        .catch(e => {
-            console.log(e);
-        });
+    runReport(options);
     return;
 }
 if (argv._.indexOf('end') > -1) {
     endDay(options)
         .then(() => {
             console.log('The day has ended.');
+            runReport(options);
         })
         .catch(e => {
             console.log(e);
